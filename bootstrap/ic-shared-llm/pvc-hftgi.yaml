@@ -14,5 +14,4 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClassName: ocs-storagecluster-cephfs
-  volumeMode: Filesystem
+  storageClassName: azurefile-csi
