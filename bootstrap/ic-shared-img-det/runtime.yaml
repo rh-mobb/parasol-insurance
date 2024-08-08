@@ -82,16 +82,17 @@ apiVersion: serving.kserve.io/v1alpha1
 kind: ServingRuntime
 metadata:
   annotations:
-    enable-route: 'true'
-    opendatahub.io/accelerator-name: ''
+    enable-route: "true"
+    opendatahub.io/accelerator-name: ""
     opendatahub.io/template-display-name: OpenVINO Model Server
     opendatahub.io/template-name: ovms
     openshift.io/display-name: ovms
+    argocd.argoproj.io/sync-wave: "2"
   name: ovms
   namespace: ic-shared-img-det
   labels:
     name: ovms
-    opendatahub.io/dashboard: 'true'
+    opendatahub.io/dashboard: "true"
 spec:
   supportedModelFormats:
     - autoSelect: true
@@ -99,10 +100,10 @@ spec:
       version: opset1
     - autoSelect: true
       name: onnx
-      version: '1'
+      version: "1"
     - autoSelect: true
       name: tensorflow
-      version: '2'
+      version: "2"
   builtInAdapter:
     env:
       - name: OVMS_FORCE_TARGET_DEVICE
@@ -114,28 +115,28 @@ spec:
   multiModel: true
   containers:
     - args:
-        - '--port=8001'
-        - '--rest_port=8888'
-        - '--config_path=/models/model_config_list.json'
-        - '--file_system_poll_wait_seconds=0'
-        - '--grpc_bind_address=127.0.0.1'
-        - '--rest_bind_address=127.0.0.1'
+        - "--port=8001"
+        - "--rest_port=8888"
+        - "--config_path=/models/model_config_list.json"
+        - "--file_system_poll_wait_seconds=0"
+        - "--grpc_bind_address=127.0.0.1"
+        - "--rest_bind_address=127.0.0.1"
       image: >-
         quay.io/opendatahub/openvino_model_server@sha256:2cbe8a48ab0bc6fe7fb76919bf33253e83a6218a9c4b486b744c3dcf30679616
       name: ovms
       resources:
         limits:
-          cpu: '1'
+          cpu: "1"
           memory: 1Gi
         requests:
-          cpu: '1'
+          cpu: "1"
           memory: 1Gi
       volumeMounts:
         - mountPath: /dev/shm
           name: shm
   protocolVersions:
     - grpc-v1
-  grpcEndpoint: 'port:8085'
+  grpcEndpoint: "port:8085"
   volumes:
     - emptyDir:
         medium: Memory
@@ -143,4 +144,4 @@ spec:
       name: shm
   replicas: 1
   tolerations: []
-  grpcDataEndpoint: 'port:8001'
+  grpcDataEndpoint: "port:8001"

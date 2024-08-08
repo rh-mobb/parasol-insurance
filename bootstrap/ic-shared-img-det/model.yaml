@@ -28,16 +28,17 @@ metadata:
   annotations:
     openshift.io/display-name: img-det
     serving.kserve.io/deploymentMode: ModelMesh
+    argocd.argoproj.io/sync-wave: "2"
   labels:
     name: "img-det"
-    opendatahub.io/dashboard: 'true'
+    opendatahub.io/dashboard: "true"
   name: "img-det"
 spec:
   predictor:
     model:
       modelFormat:
         name: onnx
-        version: '1'
+        version: "1"
       runtime: ovms
       storage:
         key: aws-connection-minio
