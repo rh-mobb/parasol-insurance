@@ -1,11 +1,11 @@
 <u>Things to automate</u>
 
-Enable Azure OpenAI, Add to code and import one of the keys
+Enable Azure OpenAI, Add to code and import one of the keys and the endpoint into the workbench as a variable
 
 Enable Azure AI Search, with private end point, pass details back to the code base automatically
 
 Pages that need the details
-- 02-05
+- 02-05 - comitted some code to test by currently throwing a permission error
 
 # Get demo code running
 install gitops operator
@@ -56,3 +56,5 @@ This should show an empty jupiter notebook, hit the git symbol on the left menu 
 Put the URL in, tick download the repository and hit clone, open the parasol-insurance folder and then open the lab-material folder. finally open the 02 folder.
 
 At this point we are into following the current demo flow https://rh-aiservices-bu.github.io/parasol-insurance/modules/02-02-auto-created-project.html 
+
+removed the endpoints not being used, added a check for Azure OpenAI but its throwing a permission error for me. Needs an additional check for AI Search endpoint
