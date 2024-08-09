@@ -1,5 +1,17 @@
+<u>Things to automate</u>
+
+Enable Azure OpenAI, Add to code and import one of the keys
+
+Enable Azure AI Search, with private end point, pass details back to the code base automatically
+
+Pages that need the details
+- 02-05
+
+# Get demo code running
 install gitops operator
+
 install OpenShift AI
+
 install pipelines?
 
 give gitops more access (this needs to be refined)
