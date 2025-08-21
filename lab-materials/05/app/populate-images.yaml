@@ -25,8 +25,7 @@ spec:
         - -ec
         - |-
           BRANCH_NAME="dev-rhoai-2.13"
-          cd /opt/app-root/src
-          git clone https://github.com/rh-aiservices-bu/parasol-insurance.git && cd parasol-insurance && git checkout $BRANCH_NAME
+          git clone -b $BRANCH_NAME https://github.com/rh-aiservices-bu/parasol-insurance.git 
 
           cat << 'EOF' | python3
           import boto3, os, botocore
