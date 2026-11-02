@@ -41,7 +41,9 @@ spec:
             - name: PRESENCE_PENALTY
               value: '1.03'
             - name: POSTGRES_HOST
-              value: aro-flzny-psql.postgres.database.azure.com
+              value: claimdb.ic-shared-db.svc.cluster.local
+            - name: STORAGE_SERVICE
+              value: aws
             - name: POSTGRES_DB
               valueFrom:
                 secretKeyRef:

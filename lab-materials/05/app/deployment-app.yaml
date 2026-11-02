@@ -15,6 +15,7 @@ spec:
       creationTimestamp: null
       labels:
         app: ic-app
+        component: ic-claim-app
         deployment: ic-app
     spec:
       volumes:

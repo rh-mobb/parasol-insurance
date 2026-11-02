@@ -38,7 +38,7 @@ image::05/05-toggle-off-workbench.jpg[]
 [.bordershadow]
 image::05/stop-workbench.png[]
 
-- In the image section, change the image to `CUSTOM - VSCode for {ic}`:
+- In the image section, change the image to `CUSTOM - VSCode for Insurance Claim Processing Lab` (tag `2023c`):
 +
 [.bordershadow]
 image::05/05-change-to-vscode.jpg[]

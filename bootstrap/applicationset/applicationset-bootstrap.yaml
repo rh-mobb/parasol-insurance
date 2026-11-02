@@ -13,6 +13,11 @@ spec:
         targetRevision: stage
         path: bootstrap/ic-shared-minio
       - cluster: in-cluster
+        name: ic-shared-database-app
+        repoURL: https://github.com/rh-mobb/parasol-insurance.git
+        targetRevision: stage
+        path: bootstrap/ic-shared-database
+      - cluster: in-cluster
         name: ic-shared-llm-app
         repoURL: https://github.com/rh-mobb/parasol-insurance.git
         targetRevision: stage
@@ -52,6 +57,19 @@ spec:
         path: '{{path}}'
       destination:
         server: 'https://kubernetes.default.svc'
+      ignoreDifferences:
+        - group: apps
+          kind: Deployment
+          name: minio
+          namespace: ic-shared-minio
+          jqPathExpressions:
+            - .spec.template.spec.containers[].image
+        - group: apps
+          kind: Deployment
+          name: ic-app
+          namespace: ic-shared-app
+          jqPathExpressions:
+            - .spec.template.spec.containers[].env[] | select(.name == "POSTGRES_HOST" or .name == "STORAGE_SERVICE")
       syncPolicy:
         automated:
           prune: true
